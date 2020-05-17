@@ -14,6 +14,7 @@ void mostrarMascotasConSusCliente(eCliente cliente[],int tamCliente,eMascotas ma
                                             mascotas[indiceMascota].raza, mascotas[indiceMascota].edad,
                                             mascotas[indiceMascota].peso,mascotas[indiceMascota].sexo,
                                             cliente[indiceCliente].nombre);
+                    printf("se agrego");
                     break;
                 }
             }
