@@ -124,7 +124,7 @@ int main()
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>LISTA LOS CLIENTES CON MAS DE UNA MASCOTA<\n");
                 printf("\t\t\t\t\t**********************\n");
-
+                mostrarClienteConMasUnaMascota(listaCliente,DUENIO,listaMascota,MASCOTA);
                 break;
             case 12:
                 printf("\t\t\t\t\t**********************\n");

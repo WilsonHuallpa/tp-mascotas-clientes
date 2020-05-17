@@ -79,7 +79,6 @@ int EliminarDuenio(eCliente listaClientes[],int tam_Clientes,eMascotas listasMas
         mostrarCliente(listaClientes,tam_Clientes);
         idClienteAeliminar= GetInt("\nIngrese ID del cliente: ");
         for(indiceCliente=0; indiceCliente<tam_Clientes; indiceCliente++) {
-
             if(listaClientes[indiceCliente].estado==OCUPADO && idClienteAeliminar==listaClientes[indiceCliente].idCliente) {
                 listaClientes[indiceCliente].estado=LIBRE;
                 for(indiceMascota=0; indiceMascota<tam_Mascotas; indiceMascota++){
@@ -93,4 +92,36 @@ int EliminarDuenio(eCliente listaClientes[],int tam_Clientes,eMascotas listasMas
             }
         }
     }while(retornoBandera==-1);
+
 }
+
+void mostrarClienteConMasUnaMascota(eCliente listasCliente[], int tam_clientes, eMascotas listasMascota[], int tam_Mascota){
+    Clientes_Mascota auxClienteMascota[tam_clientes];
+    int indiceClientes;
+    int indiceMascotas;
+
+
+    for(indiceClientes=0; indiceClientes<tam_clientes; indiceClientes++) {
+        auxClienteMascota[indiceClientes].idCliente = listasCliente[indiceClientes].idCliente;
+        auxClienteMascota[indiceClientes].cantidadMascota = 0;
+    }
+
+    /*FUNCION MAS ADELANTE VAMOS ATENER QUE TRABAJAR EN ESTO*/
+     for(indiceClientes=0; indiceClientes<tam_clientes; indiceClientes++) {
+        for(indiceMascotas=0; indiceMascotas<tam_Mascota; indiceMascotas++) {
+            if(listasMascota[indiceMascotas].estado==OCUPADO && auxClienteMascota[indiceClientes].idCliente == listasMascota[indiceMascotas].idDuenio) {
+                auxClienteMascota[indiceClientes].cantidadMascota++;
+            }
+        }
+    }
+
+    for(indiceClientes=0; indiceClientes<tam_clientes; indiceClientes++){
+        if (auxClienteMascota[indiceClientes].cantidadMascota> 1 ){
+            printf("%d %d\n",auxClienteMascota[indiceClientes].idCliente, auxClienteMascota[indiceClientes].cantidadMascota );
+        }
+
+    }
+}
+
+
+
