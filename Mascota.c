@@ -33,11 +33,11 @@ void inicializarMascota(eMascotas mascota[], int tam){
         mascota[i].idMascota=0;
     }
 }
-void mostrarMascota(eMascotas mascota[],int tam, int ocupado) {
+void mostrarMascota(eMascotas mascota[],int tam) {
     int i;
     printf("\t\tID\t\tNOMBRE\t\tTIPO\t\tRAZA\tEDAD\tPESO\tSEXO\n\n\n");
     for(i=0;i<tam;i++) {
-        if(mascota[i].estado==ocupado) {
+        if(mascota[i].estado==OCUPADO) {
             mostrarUnMascota(mascota[i]);
             }
         }

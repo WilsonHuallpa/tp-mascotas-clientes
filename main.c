@@ -14,7 +14,7 @@ int main()
         eMascotas listaMascota[MASCOTA];
 
         int opcion;
-        int M_contador=0;
+        int contadorIdMascotas=0;
         int C_contador=0;
         inicializarClientes(listaCliente,DUENIO);
         inicializarMascota(listaMascota,MASCOTA);
@@ -71,8 +71,8 @@ int main()
                 printf(">    ALTA MASCOTA  <\n");
                 printf("**********************\n");
                 if((buscarLibreMascota(listaMascota,MASCOTA))!= -1){
-                   M_contador++;
-                   altaMascotaConclientes(listaMascota,MASCOTA,listaCliente,DUENIO,M_contador);
+                   contadorIdMascotas++;
+                   altaMascotaConclientes(listaMascota,MASCOTA,listaCliente,DUENIO,contadorIdMascotas);
                 }else{
                     printf("No se encontro lugar disponible");
                 }
@@ -81,7 +81,7 @@ int main()
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>   BAJA DE MASCOTA  <\n");
                 printf("\t\t\t\t\t**********************\n");
-                mostrarMascota(listaMascota,MASCOTA,OCUPADO);
+                mostrarMascota(listaMascota,MASCOTA);
                 bajaMascota(listaMascota,MASCOTA);
                 break;
             case 6:

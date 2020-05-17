@@ -22,7 +22,7 @@ void HardcodeMascotas(eMascotas[],int tam);
 
 void inicializarMascota(eMascotas mascota[], int tam);
 
-void mostrarMascota(eMascotas mascota[],int tam, int ocupado);
+void mostrarMascota(eMascotas mascota[],int tam);
 
 void mostrarUnMascota(eMascotas miMascota);
 
