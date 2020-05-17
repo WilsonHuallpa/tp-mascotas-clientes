@@ -111,14 +111,12 @@ int main()
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>ORDENAR MASCOTA POT TIPO LISTARLO CON SUS DUENIO<\n");
                 printf("\t\t\t\t\t**********************\n");
-
                 break;
             case 10:
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>MODIFICAR DUENIO<\n");
                 printf("\t\t\t\t\t**********************\n");
                 modificarClientes(listaCliente,DUENIO);
-
                 break;
             case 11:
                 printf("\t\t\t\t\t**********************\n");
@@ -130,17 +128,19 @@ int main()
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>LISTA LAS MASCOTA DE MAS DE TRE AÑOS, CON TREPECTIVO DUEÑO<\n");
                 printf("\t\t\t\t\t**********************\n");
-
+                mostrarMascotasMayordetres(listaCliente,MASCOTA,listaMascota,MASCOTA);
                 break;
             case 13:
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>LISTA MASCOTA POR TIPO EN PARTICULAR<\n");
                 printf("\t\t\t\t\t**********************\n");
+                listarMascotastipoenParticular(listaMascota,MASCOTA);
                 break;
             case 14:
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>ORDENAR DUEÑO POR CANTIDAD DE MASCOTA<\n");
                 printf("\t\t\t\t\t**********************\n");
+                listarMascotastipoenParticular(listaMascota,MASCOTA);
                 break;
             case 15:
                 printf("\t\t\t\t\t**********************\n");

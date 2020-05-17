@@ -84,7 +84,6 @@ int EliminarDuenio(eCliente listaClientes[],int tam_Clientes,eMascotas listasMas
                 for(indiceMascota=0; indiceMascota<tam_Mascotas; indiceMascota++){
                     if(listasMascotas[indiceMascota].idDuenio == idClienteAeliminar){
                         listaClientes[indiceMascota].estado = LIBRE;
-                        printf("ELIMICION EXITOSA \n");
                         retornoBandera=0;
                         break;
                     }
@@ -92,7 +91,7 @@ int EliminarDuenio(eCliente listaClientes[],int tam_Clientes,eMascotas listasMas
             }
         }
     }while(retornoBandera==-1);
-
+    printf("ELIMICION EXITOSA \n");
 }
 
 void mostrarClienteConMasUnaMascota(eCliente listasCliente[], int tam_clientes, eMascotas listasMascota[], int tam_Mascota){
@@ -123,5 +122,32 @@ void mostrarClienteConMasUnaMascota(eCliente listasCliente[], int tam_clientes, 
     }
 }
 
+
+
+
+void mostrarMascotasMayordetres(eCliente listasClientes[],int tam_Clientes, eMascotas listaMascotas[], int tam_Mascota){
+
+    int indiceCliente;
+    int indiceMascota;
+    printf("\t\tNOMBRE\t\tTIPO\t\tRAZA\t\tEDAD\t\tPESO\t\tSEXO\t\tNOMBRE\n");
+    for(indiceMascota=0; indiceMascota<tam_Mascota; indiceMascota++) {
+
+        if(listaMascotas[indiceMascota].estado==OCUPADO && listaMascotas[indiceMascota].edad>=3) {
+
+            for(indiceCliente=0; indiceCliente<tam_Clientes; indiceCliente++) {
+
+                if(listasClientes[indiceCliente].idCliente == listaMascotas[indiceMascota].idDuenio) {
+
+                    printf("%20s%20s%20s%8d%14.2f%8c%20s\n", listaMascotas[indiceMascota].nombre,listaMascotas[indiceMascota].tipo,
+                                            listaMascotas[indiceMascota].raza, listaMascotas[indiceMascota].edad,
+                                            listaMascotas[indiceMascota].peso,listaMascotas[indiceMascota].sexo,
+                                            listasClientes[indiceCliente].nombre);
+                                            break;
+                }
+            }
+
+        }
+    }
+}
 
 

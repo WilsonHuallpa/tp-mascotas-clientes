@@ -33,3 +33,5 @@ int altaMascota(eMascotas mascota[], int tam, int cont);
 int bajaMascota(eMascotas mascota[],int tam);
 
 void modificarMascota(eMascotas mascota[],int tam);
+
+void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas);

@@ -9,7 +9,7 @@ void HardcodeMascotas(eMascotas mascota[],int tam) {
     char nombre[11][51]={{"blanca"},{"tigres"},{"machas"},{"Potter"},{"michifusi"},{"beto"},{"nenita"},{"Manchita"},{"Miox"},{"Micheeex"},{"maid"}};
     char tipo[11][51]={{"Gato"},{"Gato"},{"Perro"},{"Perro"},{"Gato"},{"Perro"},{"Raro"},{"Perro"},{"Gato"},{"Gato"},{"Perro"}};
     char raza[11][51]={{"Persa"},{"Callejero"},{"Pug"},{"Pitbull"},{"Persa"},{"Pitbull"},{"Reptil"},{"Labrador"},{"Persa"},{"Persa"},{"Bulldog"}};
-    int edad[11]={8,7,9,7,3,9,8,4,5,6,9};
+    int edad[11]={1,2,1,2,3,4,4,1,2,4,3};
     float peso[11]={5.35,3.25,4.30,7.00,6.35,3.64,10.23,7.85,4.43,4.96,3.79};
     char sexo[11]={'F','F','M','M','M','M','F','M','M','M','M'};
     int estado[11]={1,1,1,1,1,1,1,1,1,1,1};
@@ -128,4 +128,49 @@ void modificarMascota(eMascotas mascota[],int tam) {
 }
 
 
+void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas){
+    int indiceMascotas;
+    int opcion;
 
+    do{
+        printf("1.LISTAS DE PERROS\n");
+        printf("2.LISTAS DE GATOS\n");
+        printf("3.LISTAS DE RAROS\n");
+        printf("4.SALIR\n");
+        opcion=validate_option("Ingrese una opcion: ");
+        switch (opcion){
+            case 1:
+                printf("TIPO PERRO\n");
+                for(indiceMascotas=0; indiceMascotas<tam_mascotas; indiceMascotas++){
+                    if(strcmpi(listasMascotas[indiceMascotas].tipo,"Perro")==0){
+                        mostrarUnMascota(listasMascotas[indiceMascotas]);
+                    }
+                }
+                break;
+            case 2:
+                printf("TIPO GATO\n");
+                for(indiceMascotas=0; indiceMascotas<tam_mascotas; indiceMascotas++){
+                    if(strcmpi(listasMascotas[indiceMascotas].tipo,"Gato")==0){
+                        mostrarUnMascota(listasMascotas[indiceMascotas]);
+                    }
+                }
+                break;
+            case 3:
+                printf("TIPO RARO0\n");
+                for(indiceMascotas=0; indiceMascotas<tam_mascotas; indiceMascotas++){
+                    if(strcmpi(listasMascotas[indiceMascotas].tipo,"Raro")==0){
+                        mostrarUnMascota(listasMascotas[indiceMascotas]);
+                    }
+                }
+                break;
+            case 4:
+                printf("chau;\n");
+                break;
+            default:
+                printf("Ingrese una opcion valida\n");
+                break;
+
+        }
+    system("pause");
+    }while(opcion!=4);
+}
