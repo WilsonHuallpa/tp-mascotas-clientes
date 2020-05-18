@@ -111,6 +111,8 @@ int main()
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>ORDENAR MASCOTA POT TIPO LISTARLO CON SUS DUENIO<\n");
                 printf("\t\t\t\t\t**********************\n");
+                ordenarMascotasPorTIpo(listaMascota, MASCOTA);
+                mostrarMascotasConSusCliente(listaCliente,DUENIO,listaMascota,MASCOTA);
                 break;
             case 10:
                 printf("\t\t\t\t\t**********************\n");
@@ -137,6 +139,7 @@ int main()
                 listarMascotastipoenParticular(listaMascota,MASCOTA);
                 break;
             case 14:
+                system("cls");
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>ORDENAR DUEÑO POR CANTIDAD DE MASCOTA<\n");
                 printf("\t\t\t\t\t**********************\n");
@@ -146,27 +149,33 @@ int main()
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>ORDENAR DUEÑO<\n");
                 printf("\t\t\t\t\t**********************\n");
+
                 break;
             case 16:
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>PROMEDIO DE EDAD ENTRE LAS MASCOTAS<\n");
                 printf("\t\t\t\t\t**********************\n");
+                mostrarMascota(listaMascota,MASCOTA);
+                promediodeEdadesMascota(listaMascota,MASCOTA);
                 break;
             case 17:
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>EL PROMEDIO DE EDAD ENTRE LAS MASCOTAS POR TIPO<\n");
                 printf("\t\t\t\t\t**********************\n");
+                promediodePortipo(listaMascota,MASCOTA);
                 break;
             case 18:
                 printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>PROMEDIO QUE TENGO ENTRE VARONES MUJERES DE MIS CLIENTES<\n");
+                printf("\t\t\t\t\t>PROMEDIO QUE TENGO ENTRE VARONES y MUJERES DE MIS CLIENTES<\n");
                 printf("\t\t\t\t\t**********************\n");
+                promedioentreMujeresyVarones(listaCliente, DUENIO);
                 break;
             case 19:
                 break;
             default:
                 break;
             }
+        system("cls");
         }while(opcion!=19);
 
 

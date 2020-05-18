@@ -140,7 +140,7 @@ void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas
         opcion=validate_option("Ingrese una opcion: ");
         switch (opcion){
             case 1:
-                printf("TIPO PERRO\n");
+                printf("\t\t----------------------------------TIPO PERRO--------------------------------\n\n");
                 for(indiceMascotas=0; indiceMascotas<tam_mascotas; indiceMascotas++){
                     if(strcmpi(listasMascotas[indiceMascotas].tipo,"Perro")==0){
                         mostrarUnMascota(listasMascotas[indiceMascotas]);
@@ -148,7 +148,7 @@ void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas
                 }
                 break;
             case 2:
-                printf("TIPO GATO\n");
+                printf("\t\t----------------------------------TIPO GATO---------------------------------\n\n");
                 for(indiceMascotas=0; indiceMascotas<tam_mascotas; indiceMascotas++){
                     if(strcmpi(listasMascotas[indiceMascotas].tipo,"Gato")==0){
                         mostrarUnMascota(listasMascotas[indiceMascotas]);
@@ -156,7 +156,7 @@ void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas
                 }
                 break;
             case 3:
-                printf("TIPO RARO0\n");
+                printf("\t\t----------------------------------TIPO RARO---------------------------------\n\n");
                 for(indiceMascotas=0; indiceMascotas<tam_mascotas; indiceMascotas++){
                     if(strcmpi(listasMascotas[indiceMascotas].tipo,"Raro")==0){
                         mostrarUnMascota(listasMascotas[indiceMascotas]);
@@ -174,3 +174,122 @@ void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas
     system("pause");
     }while(opcion!=4);
 }
+
+
+void promediodeEdadesMascota(eMascotas listasMascotas[], int tam_Mascotas){
+
+    int indiceMascota;
+    int sumaEdades = 0;
+    int contadorid = 0;
+    float promedioEdades;
+
+    for(indiceMascota= 0; indiceMascota<tam_Mascotas; indiceMascota++){
+        if(listasMascotas[indiceMascota].estado == OCUPADO){
+            sumaEdades = sumaEdades + listasMascotas[indiceMascota].edad;
+            contadorid++;
+        }
+    }
+    promedioEdades= (float)sumaEdades/contadorid;
+
+    printf("EL PROMEDIO DE LAS EDADE DE LAS MASCOTAS ES: %.2f \n", promedioEdades);
+
+    system("pause");
+}
+
+void promediodePortipo(eMascotas listasMascotas[], int tam_Mascota){
+
+    int indiceMascota;
+    int opcion;
+    do{
+        int sumaEdades = 0;
+        int contadorid = 0;
+        float promedioPorTipo = 0;
+        printf("1.PROMEDIO PERRO\n");
+        printf("2.PROMEDIO GATO\n");
+        printf("3.PROMEDIO RARO\n");
+        printf("4.SALIR\n");
+        opcion = validate_option("Ingrese una opcion:  ");
+        switch(opcion){
+            case 1:
+                printf("PROMEDIO DE PERRO\n");
+                for(indiceMascota = 0; indiceMascota<tam_Mascota ; indiceMascota++){
+                    if(listasMascotas[indiceMascota].estado == OCUPADO){
+                        if(strcmpi(listasMascotas[indiceMascota].tipo,"Perro")==0){
+                            mostrarUnMascota(listasMascotas[indiceMascota]);
+                            sumaEdades = sumaEdades + listasMascotas[indiceMascota].edad;
+                            contadorid++;
+                        }
+                    }
+                }
+                promedioPorTipo=(float)sumaEdades/contadorid;
+                printf("EL PROMEDIO DE LAS EDADE DE LAS MASCOTAS ES: %.2f \n", promedioPorTipo);
+                break;
+            case 2:
+                printf("PROMEDIO DE GATOS\n");
+                for(indiceMascota = 0; indiceMascota<tam_Mascota ; indiceMascota++){
+                    if(listasMascotas[indiceMascota].estado == OCUPADO){
+                        if(strcmpi(listasMascotas[indiceMascota].tipo,"Gato")==0){
+                            mostrarUnMascota(listasMascotas[indiceMascota]);
+                            sumaEdades = sumaEdades + listasMascotas[indiceMascota].edad;
+                            contadorid++;
+                        }
+                    }
+                }
+                promedioPorTipo=(float)sumaEdades/contadorid;
+                printf("EL PROMEDIO DE LAS EDADE DE LAS MASCOTAS ES: %.2f \n", promedioPorTipo);
+                break;
+            case 3:
+                printf("PROMEDIO DE RARO\n");
+                for(indiceMascota = 0; indiceMascota<tam_Mascota ; indiceMascota++){
+                    if(listasMascotas[indiceMascota].estado == OCUPADO){
+                        if(strcmpi(listasMascotas[indiceMascota].tipo,"Raro")==0){
+                            mostrarUnMascota(listasMascotas[indiceMascota]);
+                            sumaEdades = sumaEdades + listasMascotas[indiceMascota].edad;
+                            contadorid++;
+                        }
+                    }
+                }
+                promedioPorTipo=(float)sumaEdades/contadorid;
+                printf("EL PROMEDIO DE LAS EDADE DE LAS MASCOTAS ES: %.2f \n", promedioPorTipo);
+
+                break;
+            case 4:
+                printf("hasta luego\n");
+                break;
+            default:
+                printf("OPCION NO VALIDAD");
+                break;
+        }
+    }while(opcion!=4);
+}
+
+/*Ordenar las mascotas por tipo y listarlas con sus dueños.*/
+
+void ordenarMascotasPorTIpo(eMascotas listasMascotas[], int tam_clientes){
+
+    int indice1;
+    int indice2;
+    eMascotas auxMascotas;
+    for(indice1=0; indice1<tam_clientes-1; indice1++) {
+        for(indice2=indice1+1; indice2<tam_clientes; indice2++) {
+            if(strcmp(listasMascotas[indice1].tipo,listasMascotas[indice2].tipo)>0) {
+                auxMascotas = listasMascotas[indice1];
+                listasMascotas[indice1] = listasMascotas[indice2];
+                listasMascotas[indice2] = auxMascotas;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

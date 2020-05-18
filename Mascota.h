@@ -35,3 +35,21 @@ int bajaMascota(eMascotas mascota[],int tam);
 void modificarMascota(eMascotas mascota[],int tam);
 
 void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas);
+
+void promediodeEdadesMascota(eMascotas listasMascotas[], int tam_Mascotas);
+
+void promediodePortipo(eMascotas listasMascotas[] , int tam_Mascotas);
+
+void ordenarMascotasPorTIpo(eMascotas listasMascotas[], int tam_clientes);
+
+
+
+
+
+
+
+
+
+
+
+

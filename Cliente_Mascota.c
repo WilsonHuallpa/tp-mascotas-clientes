@@ -20,6 +20,7 @@ void mostrarMascotasConSusCliente(eCliente cliente[],int tamCliente,eMascotas ma
 
         }
     }
+    system("pause");
 }
 
 void mostrarClientesConSusMascotas(eCliente cliente[],int tamCliente,eMascotas mascota[],int tamMascota){
@@ -83,7 +84,7 @@ int EliminarDuenio(eCliente listaClientes[],int tam_Clientes,eMascotas listasMas
                 listaClientes[indiceCliente].estado=LIBRE;
                 for(indiceMascota=0; indiceMascota<tam_Mascotas; indiceMascota++){
                     if(listasMascotas[indiceMascota].idDuenio == idClienteAeliminar){
-                        listaClientes[indiceMascota].estado = LIBRE;
+                        listasMascotas[indiceMascota].estado = LIBRE;
                         retornoBandera=0;
                         break;
                     }
@@ -92,7 +93,10 @@ int EliminarDuenio(eCliente listaClientes[],int tam_Clientes,eMascotas listasMas
         }
     }while(retornoBandera==-1);
     printf("ELIMICION EXITOSA \n");
+
+return retornoBandera;
 }
+
 
 void mostrarClienteConMasUnaMascota(eCliente listasCliente[], int tam_clientes, eMascotas listasMascota[], int tam_Mascota){
     Clientes_Mascota auxClienteMascota[tam_clientes];
@@ -149,5 +153,4 @@ void mostrarMascotasMayordetres(eCliente listasClientes[],int tam_Clientes, eMas
         }
     }
 }
-
 

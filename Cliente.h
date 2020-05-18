@@ -28,3 +28,5 @@ int buscarLibreCliente(eCliente cliente[], int tamCliente);
 int altaDeDuenio(eCliente cliente[], int tam, int cont);
 
 void modificarClientes(eCliente cliente[],int tamCliente);
+
+void promedioentreMujeresyVarones(eCliente listasClientes[], int tam_clientes);

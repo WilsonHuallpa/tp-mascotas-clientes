@@ -137,3 +137,34 @@ void modificarClientes(eCliente cliente[],int tamCliente) {
         }
     }
 }
+void promedioentreMujeresyVarones(eCliente listasClientes[], int tam_clientes){
+    int indiceClientes;
+    int sumadeTotaldeMujeres = 0;
+    int sumadeTotaldeVarones = 0;
+    float promedioTotal1;
+    float promedioTotal2;
+
+    for(indiceClientes = 0; indiceClientes<tam_clientes; indiceClientes++){
+        if(listasClientes[indiceClientes].estado == OCUPADO){
+            if(listasClientes[indiceClientes].sexo == 'M'|| listasClientes[indiceClientes].sexo == 'm'){
+                sumadeTotaldeVarones++;
+            }else if(listasClientes[indiceClientes].sexo =='F'||listasClientes[indiceClientes].sexo == 'f' ){
+                sumadeTotaldeMujeres++;
+            }
+        }
+    }
+    promedioTotal1= (float)sumadeTotaldeMujeres/tam_clientes;
+    promedioTotal2= (float)sumadeTotaldeVarones/tam_clientes;
+    printf("Cantidad de mujeres : %d\n",sumadeTotaldeMujeres);
+    printf("cantidad de varones : %d\n",sumadeTotaldeVarones);
+    printf("Promedio de mejeres : %.2f\n",promedioTotal1);
+    printf("Promedio de Varones : %.2f\n",promedioTotal2);
+    system("pause");
+}
+
+
+
+
+
+
+
