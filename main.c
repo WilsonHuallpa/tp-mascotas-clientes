@@ -16,6 +16,7 @@ int main()
         int opcion;
         int contadorIdMascotas=0;
         int C_contador=0;
+        char seguirModificando = 'S';
         inicializarClientes(listaCliente,DUENIO);
         inicializarMascota(listaMascota,MASCOTA);
 
@@ -23,53 +24,57 @@ int main()
         HardcodeMascotas(listaMascota,MASCOTA);
 
         do{
-            printf("\n\n************************** \n");
+            system("cls");
+            printf("\n************************** \n");
             printf(">          MENU           <\n");
             printf("*************************\n\n");
-            printf("1).Mostrar clientes\n");
-            printf("2).Mostrar mascotas con su dueño\n");
-            printf("3).Mostrar clientes con su mascotas\n");
-            printf("4).Alta de mascota y listado de duenios disponibles\n");
-            printf("5).Baja de mascota, es lógica, y queda el lugar disponible para otra mascota\n");
-            printf("6).Modificar mascota\n");
-            printf("7).Alta dueño\n");
-            printf("8).Borrado de dueño en cascada\n ");
-            printf("9).Ordenar las mascotas por tipo y listarlas con sus dueños.\n");
-            printf("10).Modificación Duenio\n");
-            printf("11).Listar los clientes con más de una mascota\n");
-            printf("12).Listar las mascotas de más de tres años, con respectivos dueños.\n");
-            printf("13).Listar las mascotas por un tipo en particular{perro,gato,raro}\n");
-            printf("14).Ordenar a los dueños por cantidades de mascotas y mostrarlos.\n");
-            printf("15).0rdenar a los dueños por cantidades de mascotas y por orden alfabético de los nombres y mostrarlos.\n");
-            printf("16).el promedio de edad entre las mascotas\n ");
-            printf("17).el promedio de edad entre las mascotas, por tipo\n");
-            printf("18).El promedio que tengo entre varones y mujeres de mis clientes\n");
-            printf("19).Salir\n");;
-            printf("Ingrese una opcion : ");
-            scanf("%d",&opcion);
+            printf("1).MOSTRAR CLIENTES\n");
+            printf("2).MOSTRAR MASCOTAS CON SU DUENIO\n");
+            printf("3).MOSTRAR CLIENTES CON SUS MASCOTAS\n");
+            printf("4).ALTA DE MASCOTA Y CON LISTADO DE DUENIOS\n");
+            printf("5).BAJA DE MASCOTAS \n");
+            printf("6).MODIFICAR MASCOTAS \n");
+            printf("7).ALTA DE DUENIO\n");
+            printf("8).ELIMINAR CLIENTES CON MASCOTA\n ");
+            printf("9).ORDENAR MASCOTAS POR TIPO Y SUS DUENIOS\n");
+            printf("10).MODIFICACION DE CLIENTE\n");
+            printf("11).LISTA DE CLIENTES CON MAS DE UNA MASCOTA\n");
+            printf("12).LISTA DE MASCOTAAS CON MAS DE TRES AÑOS\n");
+            printf("13).LISTA DE MASCOTA POR TIPO PARTICULAR{PERRO,GATOO,RARO}.\n");
+            printf("14).LISTA ORDENADA DE LOS DUENIO POR CANTIDAD DE MASCOTA.\n");
+            printf("15).LISTA ORDENADA DE LOS DUENIO POR CANTIDAD DE MASCOTA Y  POR ALFABETICO {A-Z}.\n");
+            printf("16).PROMEDIO DE EDAD ENTRE LAS MASCOTAS\n ");
+            printf("17).PROMEDIO DE EDAD ENTRE LAS MASCOTAS POR TIPO\n");
+            printf("18).PROMEDIO QUE TENGO ENTRE VARONES Y MUJERES DE MIS CLIENTES.\n");
+            printf("19).SALIR\n");
+            opcion=GetInt("\nINGRESA UNA OPCION:  ");
             switch(opcion) {
             case 1:
-                printf("**********************\n");
-                printf(">    MOSTRAR CLIENTE   <\n");
-                printf("**********************\n");
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>-------------------------MOSTRAR CLIENTE---------------------<\n");
+                printf("\t\t\t**************************************************************\n");
                 mostrarCliente(listaCliente,DUENIO);
                 break;
             case 2:
-                printf("****************************\n");
-                printf(">   MASCOTA CON SU DUEÑO   <\n");
-                printf("****************************\n");
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>---------------MOSTRAR MASCOTAS CON DUENIO------------------<\n");
+                printf("\t\t\t**************************************************************\n");
                 mostrarMascotasConSusCliente(listaCliente,DUENIO,listaMascota,MASCOTA);
                 break;
             case 3:
-                printf("*******************************\n");
-                printf(">  CLIENTES CON SUS MASCOTAS  <\n");
-                printf("*******************************\n");
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>---------------CLIENTES CON SUS MASCOTAS--------------------<\n");
+                printf("\t\t\t**************************************************************\n");
                 mostrarClientesConSusMascotas(listaCliente,DUENIO,listaMascota,MASCOTA);
                 break;
             case 4:
-                printf("**********************\n");
-                printf(">    ALTA MASCOTA  <\n");
-                printf("**********************\n");
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>---------------ALTAS DE MASCOTAS----------------------------<\n");
+                printf("\t\t\t**************************************************************\n");
                 if((buscarLibreMascota(listaMascota,MASCOTA))!= -1){
                    contadorIdMascotas++;
                    altaMascotaConclientes(listaMascota,MASCOTA,listaCliente,DUENIO,contadorIdMascotas);
@@ -78,28 +83,35 @@ int main()
                 }
                 break;
             case 5:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>   BAJA DE MASCOTA  <\n");
-                printf("\t\t\t\t\t**********************\n");
-                mostrarMascota(listaMascota,MASCOTA);
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>---------------BAJAS DE MASCOTAS----------------------------<\n");
+                printf("\t\t\t**************************************************************\n");
                 bajaMascota(listaMascota,MASCOTA);
                 break;
             case 6:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>MODIFICAR DE MASCOTA<\n");
-                printf("\t\t\t\t\t**********************\n");
-                modificarMascota(listaMascota,MASCOTA);
+                while(seguirModificando == 's' || seguirModificando == 'S'){
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>---------------MODIFICAR MASCOTAS----------------------------<\n");
+                printf("\t\t\t**************************************************************\n");
+                    mostrarMascota(listaMascota,MASCOTA);
+                    modificarMascota(listaMascota,MASCOTA);
+                    mostrarMascota(listaMascota,MASCOTA);
+                    seguirModificando= GetChar("\nDESEAS SEGUIR MODIFICANDO (s/n): ");
+                }
                 break;
             case 7:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>    ALTA DE DUEÑO   <\n");
-                printf("\t\t\t\t\t**********************\n");
-                if((buscarLibreCliente(listaCliente,DUENIO)) != -1){
-                    C_contador++;
-                    altaDeDuenio(listaCliente,DUENIO,C_contador);
-                }else{
-                    printf("No se encontro lugar disponible");
-                }
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>-------------------ALTA DE DUEÑO----------------------------<\n");
+                printf("\t\t\t**************************************************************\n");
+                    if((buscarLibreCliente(listaCliente,DUENIO)) != -1){
+                        C_contador++;
+                        altaDeDuenio(listaCliente,DUENIO,C_contador);
+                    }else{
+                        printf("No se encontro lugar disponible");
+                    }
                 break;
             case 8:
                 printf("\t\t\t\t\t**********************\n");
@@ -175,7 +187,7 @@ int main()
             default:
                 break;
             }
-        system("cls");
+        system("pause");
         }while(opcion!=19);
 
 

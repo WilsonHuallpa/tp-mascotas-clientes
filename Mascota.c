@@ -44,7 +44,7 @@ void mostrarMascota(eMascotas mascota[],int tam) {
 }
 void mostrarUnMascota(eMascotas miMascota){
 
-    printf("%19d%19s%14s%16s%8d%8.2f%8c\n\n",miMascota.idMascota,miMascota.nombre,
+    printf("%19d%19s%14s%16s%8d%8.2f%8c\n",miMascota.idMascota,miMascota.nombre,
                                     miMascota.tipo,miMascota.raza,miMascota.edad,miMascota.peso,miMascota.sexo);
 }
 int  buscarLibreMascota(eMascotas listaMascota[], int tam){
@@ -62,38 +62,44 @@ int bajaMascota(eMascotas mascota[],int tam) {
 
     int aux;
     int i;
-    int retorno=-1;
-    aux=GetInt("Ingrese id de mascota: ");
-    for(i=0;i<tam;i++){
-        if(mascota[i].idMascota==aux && mascota[i].estado==OCUPADO) {
-            printf("\nSe encontro la mascota, se dara de baja\n");
-            mascota[i].estado=LIBRE;
-            system("pause");
-            retorno=i;
+    int retorno = -1;
+    char seguir;
+    do{
+        mostrarMascota(mascota,tam);
+        aux=GetInt("\nIngrese id de mascota: ");
+        for(i=0;i<tam;i++){
+            if(mascota[i].idMascota==aux && mascota[i].estado==OCUPADO) {
+                printf("\nSe encontro la mascota, se dara de baja\n");
+                retorno = 1;
+                mascota[i].estado=LIBRE;
+            }
         }
-    }
-    if(retorno== -1){
-        printf("\nno se encontro lo siento\n");
-        system("pause");
-    }
+        if(retorno == -1){
+            printf("\n no se encontro lo siento\n");
+        }
+    seguir=GetChar("DESEAS SEGUIR (s/n):");
+    }while(seguir == 's' || seguir == 'S');
+
 return retorno;
 }
 void modificarMascota(eMascotas mascota[],int tam) {
     int index;
     int i;
     int opcion;
-    index=GetInt("ingrese ID de mascota\n");
+    int retorno=0;
+    index=GetInt("\nINGRESE ID DE MASCOTA: ");
     for(i=0; i<tam; i++) {
         if(mascota[i].idMascota==index && mascota[i].estado==OCUPADO) {
             do {
+                retorno = 1;
                 printf("*************************\n");
-                printf("Nombre: %s",mascota[i].nombre);
+                printf("\nNombre: %s",mascota[i].nombre);
                 printf("\nTipo: %s",mascota[i].tipo);
                 printf("\nRaza: %s",mascota[i].raza);
                 printf("\nEdad: %d",mascota[i].edad);
                 printf("\nPeso: %.2f",mascota[i].peso);
                 printf("\nSexo: %c",mascota[i].sexo);
-                printf("*************************\n");
+                printf("\n*************************\n");
                 printf("1).Nombre\n");
                 printf("2).Tipo\n");
                 printf("3).Raza\n");
@@ -125,8 +131,10 @@ void modificarMascota(eMascotas mascota[],int tam) {
             }while(opcion!=7);
         }
     }
+    if(retorno == 0){
+        printf("\nLO SIENTO NO SE ENCONTRO LA IDE \n");
+    }
 }
-
 
 void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas){
     int indiceMascotas;

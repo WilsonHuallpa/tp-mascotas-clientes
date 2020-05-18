@@ -4,13 +4,13 @@ void mostrarMascotasConSusCliente(eCliente cliente[],int tamCliente,eMascotas ma
     int indiceCliente;
     int indiceMascota;
 
-    printf("\t\tNOMBRE\t\tTIPO\t\tRAZA\t\tEDAD\t\tPESO\t\tSEXO\t\tNOMBRE\n");
+    printf("\t\tNOMBRE\t\tTIPO\t\tRAZA\t\tEDAD\t\tPESO\t\tSEXO\t\tNOMBRE\n\n");
     for(indiceMascota=0; indiceMascota<tamMascota; indiceMascota++) {
         if(mascotas[indiceMascota].estado==OCUPADO) {
             for(indiceCliente=0; indiceCliente<tamCliente; indiceCliente++) {
                 if(cliente[indiceCliente].idCliente == mascotas[indiceMascota].idDuenio) {
 
-                    printf("%20s%20s%20s%8d%14.2f%8c%20s\n", mascotas[indiceMascota].nombre,mascotas[indiceMascota].tipo,
+                    printf("%22s%14s%17s\t%12d%16.2f\t%12c%18s\n", mascotas[indiceMascota].nombre,mascotas[indiceMascota].tipo,
                                             mascotas[indiceMascota].raza, mascotas[indiceMascota].edad,
                                             mascotas[indiceMascota].peso,mascotas[indiceMascota].sexo,
                                             cliente[indiceCliente].nombre);
@@ -20,13 +20,12 @@ void mostrarMascotasConSusCliente(eCliente cliente[],int tamCliente,eMascotas ma
 
         }
     }
-    system("pause");
 }
 
 void mostrarClientesConSusMascotas(eCliente cliente[],int tamCliente,eMascotas mascota[],int tamMascota){
     int indiceCientes;
     int indiceMascotas;
-
+    printf("\t\tID\t\tNOMBRE\t\tTIPO\t\tRAZA\tEDAD\tPESO\tSEXO\n\n\n");
     for(indiceCientes=0; indiceCientes<tamCliente; indiceCientes++) {
         if(cliente[indiceCientes].estado==OCUPADO){
             printf("clientes: %s\n", cliente[indiceCientes].nombre);
@@ -46,19 +45,18 @@ int altaMascotaConclientes(eMascotas mascota[], int tamMascota,eCliente clientes
     indexLibre=buscarLibreMascota(mascota,tamMascota);
     int retorno=-1;
     if(indexLibre!=-1) {
-
         GetString("Ingrese el Nombre: ",mascota[indexLibre].nombre);
         do{
-        GetString("Ingrese el Tipo: ",mascota[indexLibre].tipo);
+        GetString("Ingrese el Tipo (Perro Gato Raro) : ",mascota[indexLibre].tipo);
         }while((strcmpi(mascota[indexLibre].tipo,"Perro")==0||strcmpi(mascota[indexLibre].tipo,"Gato")==0||strcmpi(mascota[indexLibre].tipo,"Raro")==0)!=1);
         GetString("Ingrese la Raza: ",mascota[indexLibre].raza);
         mascota[indexLibre].edad=GetInt("Ingrese Edad: ");
         mascota[indexLibre].peso=GetFloat("Ingrese Peso: ");
         mascota[indexLibre].sexo=GetChar("Ingrese sexo ('M'o'F'): ");
-        printf("\t\tCLIENTES DISPONIBLES\n\n");
+        printf("\t\t\tCLIENTES DISPONIBLES\n\n");
         for (indexCliente=0; indexCliente<tamCliente;indexCliente++){
             if(clientes[indexCliente].estado==OCUPADO){
-                printf("\t%8d %14s\n",clientes[indexCliente].idCliente,clientes[indexCliente].nombre);
+                printf("\t\t%12d %14s\n",clientes[indexCliente].idCliente,clientes[indexCliente].nombre);
             }
         }
         mascota[indexLibre].idDuenio=GetInt("Ingrese ID del duenio: ");
