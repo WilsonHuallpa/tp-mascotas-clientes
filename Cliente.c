@@ -4,8 +4,8 @@
 void HardcodeClientes(eCliente cliente[],int tamCliente){
 
     int idCliente[5]={1000,1001,1002,1003,1004};
-    char nombre[5][31]={"mujer","senior","chica","chico","senor2"};
-    char apellido[5][31]={"camacho","porcel","huallpa","apelli3","aplli4"};
+    char nombre[5][31]={"sabina","sanesto","ana","lauti","nestor"};
+    char apellido[5][31]={"porcel","huallpa","condori","huallpa","cruz"};
     char localidad[5][31]={"Monte Grande","Lomas","lomas","ezeiza","lanus"};
     int telefono[5]={11112222,44422222,33233333,44455544,55556666};
     int edad[5]={20,85,18,21,34};

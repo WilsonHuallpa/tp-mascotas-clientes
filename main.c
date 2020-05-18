@@ -143,13 +143,13 @@ int main()
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>ORDENAR DUEÑO POR CANTIDAD DE MASCOTA<\n");
                 printf("\t\t\t\t\t**********************\n");
-                listarMascotastipoenParticular(listaMascota,MASCOTA);
+                ordenarDuenioosPorcantida(listaMascota,MASCOTA,listaCliente,DUENIO);
                 break;
             case 15:
                 printf("\t\t\t\t\t**********************\n");
                 printf("\t\t\t\t\t>ORDENAR DUEÑO<\n");
                 printf("\t\t\t\t\t**********************\n");
-
+                ordenarClientePorCantidadyNombre(listaMascota,MASCOTA,listaCliente,DUENIO);
                 break;
             case 16:
                 printf("\t\t\t\t\t**********************\n");

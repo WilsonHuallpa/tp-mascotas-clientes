@@ -153,4 +153,120 @@ void mostrarMascotasMayordetres(eCliente listasClientes[],int tam_Clientes, eMas
         }
     }
 }
+/*Ordenar a los dueños por cantidades de mascotas y mostrarlos*/
+void ordenarDuenioosPorcantida(eMascotas listamascotas[], int tam_Mascota, eCliente listaclientes[], int tam_clientes){
+
+    int indice_I;
+    int indice_J;
+    Clientes_Mascota auxClienteMascota[tam_clientes];
+    Clientes_Mascota auxiliar;
+    eCliente auxiliarClientes;
+
+    inicializarClientes_Mascotas(auxClienteMascota,tam_clientes,listaclientes);
+    contadorDeMascotaporClientes(listaclientes,tam_clientes,listamascotas,tam_Mascota,auxClienteMascota);
+
+
+        for(indice_I=0; indice_I<tam_clientes-1; indice_I++) {
+            for(indice_J=indice_I+1; indice_J<tam_clientes; indice_J++) {
+                if(auxClienteMascota[indice_I].cantidadMascota<auxClienteMascota[indice_J].cantidadMascota){
+                    auxiliar = auxClienteMascota[indice_I];
+                    auxClienteMascota[indice_I] = auxClienteMascota[indice_J];
+                    auxClienteMascota[indice_J] = auxiliar;
+
+                    auxiliarClientes = listaclientes[indice_I];
+                    listaclientes[indice_I]= listaclientes[indice_J];
+                    listaclientes[indice_J]= auxiliarClientes;
+                }
+            }
+        }
+
+        printf(" NOMBRE DUENIO  CANTIDAD MASCOTAS\n");
+        printf("---------------------------------\n");
+        for(indice_I = 0; indice_I<tam_clientes; indice_I++){
+            if(listaclientes[indice_I].estado ==OCUPADO){
+                printf(" %15s,%15d\n",listaclientes[indice_I].nombre,auxClienteMascota[indice_I].cantidadMascota);
+            }
+
+        }
+ system("pause");
+}
+
+void inicializarClientes_Mascotas(Clientes_Mascota auxClienteMascota[], int tam_clientes, eCliente listaCliente[]){
+
+    int indiceClientes;
+    for(indiceClientes=0; indiceClientes<tam_clientes; indiceClientes++) {
+        auxClienteMascota[indiceClientes].idCliente = listaCliente[indiceClientes].idCliente;
+        auxClienteMascota[indiceClientes].cantidadMascota = 0;
+        }
+
+}
+
+void contadorDeMascotaporClientes(eCliente listasClientes[], int tam_clientes, eMascotas listasMascotas[], int tam_Mascotas,Clientes_Mascota auxClienteMascota[]){
+    int indiceClientes;
+    int indiceMascotas;
+    for(indiceClientes=0; indiceClientes<tam_clientes; indiceClientes++) {
+        for(indiceMascotas=0; indiceMascotas<tam_Mascotas; indiceMascotas++) {
+            if(listasMascotas[indiceMascotas].estado==OCUPADO && auxClienteMascota[indiceClientes].idCliente == listasMascotas[indiceMascotas].idDuenio) {
+                    auxClienteMascota[indiceClientes].cantidadMascota++;
+            }
+        }
+    }
+}
+
+/*0rdenar a los dueños por cantidades de mascotas y por orden alfabético de los nombres y mostrarlos.*/
+
+
+void ordenarClientePorCantidadyNombre(eMascotas listamascotas[], int tam_Mascota, eCliente listaclientes[], int tam_clientes){
+
+    int indice_I;
+    int indice_J;
+    Clientes_Mascota auxClienteMascota[tam_clientes];
+    Clientes_Mascota auxiliar;
+    eCliente auxiliarClientes;
+
+    inicializarClientes_Mascotas(auxClienteMascota,tam_clientes,listaclientes);
+    contadorDeMascotaporClientes(listaclientes,tam_clientes,listamascotas,tam_Mascota,auxClienteMascota);
+
+
+        for(indice_I=0; indice_I<tam_clientes-1; indice_I++) {
+            for(indice_J=indice_I+1; indice_J<tam_clientes; indice_J++) {
+                if(auxClienteMascota[indice_I].cantidadMascota<auxClienteMascota[indice_J].cantidadMascota){
+                    auxiliar = auxClienteMascota[indice_I];
+                    auxClienteMascota[indice_I] = auxClienteMascota[indice_J];
+                    auxClienteMascota[indice_J] = auxiliar;
+
+                    auxiliarClientes = listaclientes[indice_I];
+                    listaclientes[indice_I]= listaclientes[indice_J];
+                    listaclientes[indice_J]= auxiliarClientes;
+
+                }else if(auxClienteMascota[indice_I].cantidadMascota==auxClienteMascota[indice_J].cantidadMascota){
+                    if((stricmp(listaclientes[indice_I].nombre,listaclientes[indice_J].nombre))>0){
+
+                        auxiliar = auxClienteMascota[indice_I];
+                        auxClienteMascota[indice_I] = auxClienteMascota[indice_J];
+                        auxClienteMascota[indice_J] = auxiliar;
+
+                        auxiliarClientes = listaclientes[indice_I];
+                        listaclientes[indice_I]= listaclientes[indice_J];
+                        listaclientes[indice_J]= auxiliarClientes;
+
+                    }
+
+
+                }
+            }
+        }
+        printf("------ORDENADO POR CANTIDAD Y NOMBRE (A-Z)------\n");
+        printf("------------------------------------------------\n");
+        printf("---- NOMBRE DUENIO------CANTIDAD MASCOTAS-------\n");
+        printf("------------------------------------------------\n");
+        for(indice_I = 0; indice_I<tam_clientes; indice_I++){
+            if(listaclientes[indice_I].estado ==OCUPADO){
+                printf("%15s %15d\n",listaclientes[indice_I].nombre,auxClienteMascota[indice_I].cantidadMascota);
+            }
+
+        }
+ system("pause");
+}
+
 
