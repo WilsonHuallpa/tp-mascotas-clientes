@@ -10,6 +10,7 @@ typedef struct
 {
     int idMascota;
     int idDuenio;
+    int idRaza;
     char nombre[51];
     char tipo[51];
     char raza[51];

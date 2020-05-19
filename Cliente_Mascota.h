@@ -3,6 +3,7 @@
 #include "Cliente.h"
 #include "Mascota.h"
 #include "Validacio.h"
+#include "raza.h"
 #define OCUPADO 1
 #define LIBRE 0
 
@@ -128,3 +129,6 @@ void contadorDeMascotaporClientes(eCliente listasClientes[], int tam_clientes, e
  *
  */
 void ordenarClientePorCantidadyNombre(eMascotas listamascotas[], int tam_Mascota, eCliente listaclientes[], int tam_clientes);
+
+
+void dueniosquetienenMascotasdelMismosexo(eCliente listaCliente[], int tam_cliente,eMascotas listaMascota[], int tam_mascota);

@@ -5,14 +5,17 @@
 #include "Cliente_Mascota.h"
 #define DUENIO 10
 #define MASCOTA 20
+#define LENRAZA 5
 #define OCUPADO 1
 #define LIBRE 0
 
+
 int main()
 {
+
         eCliente listaCliente[DUENIO];
         eMascotas listaMascota[MASCOTA];
-
+        eRaza listaRaza[LENRAZA];
         int opcion;
         int contadorIdMascotas=0;
         int C_contador=0;
@@ -20,7 +23,7 @@ int main()
         float promedioEdades;
         inicializarClientes(listaCliente,DUENIO);
         inicializarMascota(listaMascota,MASCOTA);
-
+        HardcoderazadeMascota(listaRaza);
         HardcodeClientes(listaCliente,DUENIO);
         HardcodeMascotas(listaMascota,MASCOTA);
 
@@ -78,6 +81,7 @@ int main()
                 printf("\t\t\t**************************************************************\n");
                 if((buscarLibreMascota(listaMascota,MASCOTA))!= -1){
                    contadorIdMascotas++;
+                   listadoderazadisponible(listaRaza, LENRAZA);
                    altaMascotaConclientes(listaMascota,MASCOTA,listaCliente,DUENIO,contadorIdMascotas);
                 }else{
                     printf("No se encontro lugar disponible");
@@ -201,13 +205,17 @@ int main()
                 promedioentreMujeresyVarones(listaCliente, DUENIO);
                 break;
             case 19:
+                dueniosquetienenMascotasdelMismosexo(listaCliente,DUENIO,listaMascota,MASCOTA);
                 break;
             default:
                 break;
             }
         system("pause");
-        }while(opcion!=19);
+        }while(opcion!=20);
     return 0;
 }
+//seleccionar raza
+
+
  /* system("pause");
     system("cls");*/

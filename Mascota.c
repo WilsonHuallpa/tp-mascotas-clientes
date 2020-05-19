@@ -8,18 +8,20 @@ void HardcodeMascotas(eMascotas mascota[],int tam) {
     int idDuenio[11]={1000,1000,1001,1001,1001,1002,1002,1003,1004,1004,1004};
     char nombre[11][51]={{"blanca"},{"tigres"},{"machas"},{"Potter"},{"michifusi"},{"beto"},{"nenita"},{"Manchita"},{"Miox"},{"Micheeex"},{"maid"}};
     char tipo[11][51]={{"Gato"},{"Gato"},{"Perro"},{"Perro"},{"Gato"},{"Perro"},{"Raro"},{"Perro"},{"Gato"},{"Gato"},{"Perro"}};
-    char raza[11][51]={{"Persa"},{"Callejero"},{"Pug"},{"Pitbull"},{"Persa"},{"Pitbull"},{"Reptil"},{"Labrador"},{"Persa"},{"Persa"},{"Bulldog"}};
+    int idRaza[11]={3000,3001,3002,3003,3000,3000,3001,3002,3003,3000,3001};
+    //char raza[11][51]={{"Persa"},{"Callejero"},{"Pug"},{"Pitbull"},{"Persa"},{"Pitbull"},{"Reptil"},{"Labrador"},{"Persa"},{"Persa"},{"Bulldog"}};
     int edad[11]={1,2,1,2,3,4,4,1,2,4,3};
     float peso[11]={5.35,3.25,4.30,7.00,6.35,3.64,10.23,7.85,4.43,4.96,3.79};
-    char sexo[11]={'F','F','M','M','M','M','F','M','M','M','M'};
+    char sexo[11]={'F','F','F','F','F','M','F','M','M','M','M'};
     int estado[11]={1,1,1,1,1,1,1,1,1,1,1};
 
     for(i=0;i<11;i++) {
         mascota[i].idMascota=idMascota[i];
         mascota[i].idDuenio=idDuenio[i];
+        mascota[i].idRaza=idRaza[i];
         strcpy(mascota[i].nombre,nombre[i]);
         strcpy(mascota[i].tipo,tipo[i]);
-        strcpy(mascota[i].raza,raza[i]);
+        //strcpy(mascota[i].raza,raza[i]);
         mascota[i].edad=edad[i];
         mascota[i].peso=peso[i];
         mascota[i].sexo=sexo[i];
@@ -44,8 +46,8 @@ void mostrarMascota(eMascotas mascota[],int tam) {
 }
 void mostrarUnMascota(eMascotas miMascota){
 
-    printf("%19d%19s%14s%16s%8d%8.2f%8c\n",miMascota.idMascota,miMascota.nombre,
-                                    miMascota.tipo,miMascota.raza,miMascota.edad,miMascota.peso,miMascota.sexo);
+    printf("%19d%19s%14s%16d%8d%8.2f%8c\n",miMascota.idMascota,miMascota.nombre,
+                                    miMascota.tipo,miMascota.idRaza,miMascota.edad,miMascota.peso,miMascota.sexo);
 }
 int  buscarLibreMascota(eMascotas listaMascota[], int tam){
     int i;
@@ -95,7 +97,7 @@ void modificarMascota(eMascotas mascota[],int tam) {
                 printf("*************************\n");
                 printf("\nNombre: %s",mascota[i].nombre);
                 printf("\nTipo: %s",mascota[i].tipo);
-                printf("\nRaza: %s",mascota[i].raza);
+                printf("\nRaza: %d",mascota[i].idRaza);
                 printf("\nEdad: %d",mascota[i].edad);
                 printf("\nPeso: %.2f",mascota[i].peso);
                 printf("\nSexo: %c",mascota[i].sexo);
@@ -266,7 +268,6 @@ void ordenarMascotasPorTIpo(eMascotas listasMascotas[], int tam_clientes){
             }
         }
     }
-/*Ordenar las mascotas por tipo y listarlas con sus dueños.*/
 }
 
 

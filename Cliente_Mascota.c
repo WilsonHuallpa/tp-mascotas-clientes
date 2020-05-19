@@ -1,4 +1,6 @@
 #include "Cliente_Mascota.h"
+
+
 void mostrarMascotasConSusCliente(eCliente cliente[],int tamCliente,eMascotas mascotas[], int tamMascota){
 
     int indiceCliente;
@@ -10,8 +12,8 @@ void mostrarMascotasConSusCliente(eCliente cliente[],int tamCliente,eMascotas ma
             for(indiceCliente=0; indiceCliente<tamCliente; indiceCliente++) {
                 if(cliente[indiceCliente].idCliente == mascotas[indiceMascota].idDuenio) {
 
-                    printf("%22s%14s%17s\t%12d%16.2f\t%12c%18s\n", mascotas[indiceMascota].nombre,mascotas[indiceMascota].tipo,
-                                            mascotas[indiceMascota].raza, mascotas[indiceMascota].edad,
+                    printf("%22s%14s%17d\t%12d%16.2f\t%12c%18s\n", mascotas[indiceMascota].nombre,mascotas[indiceMascota].tipo,
+                                            mascotas[indiceMascota].idRaza, mascotas[indiceMascota].edad,
                                             mascotas[indiceMascota].peso,mascotas[indiceMascota].sexo,
                                             cliente[indiceCliente].nombre);
                     break;
@@ -47,9 +49,11 @@ int altaMascotaConclientes(eMascotas mascota[], int tamMascota,eCliente clientes
     if(indexLibre!=-1) {
         GetString("Ingrese el Nombre: ",mascota[indexLibre].nombre);
         do{
-        GetString("Ingrese el Tipo (Perro Gato Raro) : ",mascota[indexLibre].tipo);
+            GetString("Ingrese el Tipo disponible (Perro Gato Raro) : ",mascota[indexLibre].tipo);
         }while((strcmpi(mascota[indexLibre].tipo,"Perro")==0||strcmpi(mascota[indexLibre].tipo,"Gato")==0||strcmpi(mascota[indexLibre].tipo,"Raro")==0)!=1);
-        GetString("Ingrese la Raza: ",mascota[indexLibre].raza);
+
+        //GetString("Ingrese la Raza: ",mascota[indexLibre].raza);
+        mascota[indexLibre].idRaza=GetInt("Ingrese la Raza: ");
         mascota[indexLibre].edad=GetInt("Ingrese Edad: ");
         mascota[indexLibre].peso=GetFloat("Ingrese Peso: ");
         mascota[indexLibre].sexo=GetChar("Ingrese sexo ('M'o'F'): ");
@@ -67,6 +71,7 @@ int altaMascotaConclientes(eMascotas mascota[], int tamMascota,eCliente clientes
         }
 return retorno;
 }
+
 
 int EliminarDuenio(eCliente listaClientes[],int tam_Clientes,eMascotas listasMascotas[],int tam_Mascotas) {
 
@@ -124,8 +129,8 @@ void mostrarMascotasMayordetres(eCliente listasClientes[],int tam_Clientes, eMas
 
                 if(listasClientes[indiceCliente].idCliente == listaMascotas[indiceMascota].idDuenio) {
 
-                    printf("%20s%20s%8d%14.2f%8c%20s\n\n",listaMascotas[indiceMascota].tipo,
-                                                        listaMascotas[indiceMascota].raza, listaMascotas[indiceMascota].edad,
+                    printf("%20s%20d%8d%14.2f%8c%20s\n\n",listaMascotas[indiceMascota].tipo,
+                                                        listaMascotas[indiceMascota].idRaza, listaMascotas[indiceMascota].edad,
                                                         listaMascotas[indiceMascota].peso,listaMascotas[indiceMascota].sexo,
                                                         listasClientes[indiceCliente].nombre);
                                                         break;
@@ -247,7 +252,36 @@ void ordenarClientePorCantidadyNombre(eMascotas listamascotas[], int tam_Mascota
 
         }
  system("pause");
- /*0rdenar a los dueños por cantidades de mascotas y por orden alfabético de los nombres y mostrarlos.*/
+
+}
+
+void dueniosquetienenMascotasdelMismosexo(eCliente listaCliente[], int tam_cliente,eMascotas listaMascota[], int tam_mascota){
+
+    int indiceCliente;
+    int indiceMascota;
+
+    printf("\n\nMASCOTAS MASCULINAS");
+    for(indiceCliente=0;indiceCliente< tam_cliente; indiceCliente++){
+        if(listaCliente[indiceCliente].estado==OCUPADO){
+            for(indiceMascota=0;indiceMascota<tam_mascota;indiceMascota++){
+                if(listaMascota[indiceMascota].estado==OCUPADO && listaMascota[indiceMascota].sexo=='M'){
+                    printf("\n%s %c \n",listaCliente[indiceCliente].nombre, listaMascota[indiceMascota].sexo);
+                    break;
+                }
+            }
+        }
+    }
+    printf("\n\nMASCOTAS MASCULINAS");
+    for(indiceCliente=0;indiceCliente< tam_cliente; indiceCliente++){
+        if(listaCliente[indiceCliente].estado==OCUPADO){
+            for(indiceMascota=0;indiceMascota<tam_mascota;indiceMascota++){
+                if(listaMascota[indiceMascota].estado==OCUPADO && listaMascota[indiceMascota].sexo=='F'){
+                    printf("\n%s %c \n",listaCliente[indiceCliente].nombre, listaMascota[indiceMascota].sexo);
+                    break;
+                }
+            }
+        }
+    }
 }
 
 

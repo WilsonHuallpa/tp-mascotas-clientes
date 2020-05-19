@@ -80,3 +80,6 @@ void modificarClientes(eCliente cliente[],int tamCliente);
  *
  */
 void promedioentreMujeresyVarones(eCliente listasClientes[], int tam_clientes);
+
+
+
