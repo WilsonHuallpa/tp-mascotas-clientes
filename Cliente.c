@@ -86,11 +86,13 @@ void modificarClientes(eCliente cliente[],int tamCliente) {
     int index;
     int i;
     int opcion;
-    index=GetInt("ingrese ID de Cliente: ");
+    index=GetInt("\n\ningrese ID de Cliente: ");
     for(i=0; i<tamCliente; i++) {
         if(cliente[i].idCliente==index && cliente[i].estado==OCUPADO) {
             do {
-                printf("************%d**************\n",cliente[i].idCliente);
+                system("cls");
+                printf("*********************MODIFICANDO*****************\n");
+                printf("*************************%d**********************\n",cliente[i].idCliente);
                 printf("Nombre: %s",cliente[i].nombre);
                 printf("\nApellido: %s",cliente[i].apellido);
                 printf("\nLocalidad: %s",cliente[i].localidad);
@@ -128,8 +130,11 @@ void modificarClientes(eCliente cliente[],int tamCliente) {
                         cliente[i].sexo=GetChar("ERROR..ingrese sexo (F/M):");
                         }
                         break;
+                    case 7:
+                        printf("\nMODIFICACION EXITOSA\n\n");
+                     break;
                     default:
-                        printf("No es una opcion validad\n");
+                        printf("ERROR.. NO ES UNA OPCION VALIDAD\n");
                         break;
                 }
             system("pause");

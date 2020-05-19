@@ -16,7 +16,7 @@ int main()
         int opcion;
         int contadorIdMascotas=0;
         int C_contador=0;
-        char seguirModificando = 'S';
+        char seguirOperando = 'S';
         inicializarClientes(listaCliente,DUENIO);
         inicializarMascota(listaMascota,MASCOTA);
 
@@ -90,7 +90,7 @@ int main()
                 bajaMascota(listaMascota,MASCOTA);
                 break;
             case 6:
-                while(seguirModificando == 's' || seguirModificando == 'S'){
+                while(seguirOperando == 's' || seguirOperando == 'S'){
                 system("cls");
                 printf("\t\t\t**************************************************************\n");
                 printf("\t\t\t>---------------MODIFICAR MASCOTAS----------------------------<\n");
@@ -98,10 +98,11 @@ int main()
                     mostrarMascota(listaMascota,MASCOTA);
                     modificarMascota(listaMascota,MASCOTA);
                     mostrarMascota(listaMascota,MASCOTA);
-                    seguirModificando= GetChar("\nDESEAS SEGUIR MODIFICANDO (s/n): ");
+                    seguirOperando= GetChar("\nDESEAS SEGUIR MODIFICANDO (s/n): ");
                 }
                 break;
             case 7:
+                while(seguirOperando == 's' || seguirOperando == 'S'){
                 system("cls");
                 printf("\t\t\t**************************************************************\n");
                 printf("\t\t\t>-------------------ALTA DE DUEÑO----------------------------<\n");
@@ -112,49 +113,61 @@ int main()
                     }else{
                         printf("No se encontro lugar disponible");
                     }
+                    seguirOperando= GetChar("\nDESEAS SEGUIR  (s/n): ");
+                }
                 break;
             case 8:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>BORRADO DE DUENIO EN CASCADA<\n");
-                printf("\t\t\t\t\t**********************\n");
-                EliminarDuenio(listaCliente,DUENIO,listaMascota,MASCOTA);
+                while(seguirOperando == 's' || seguirOperando == 'S'){
+                    system("cls");
+                    printf("\t\t\t**************************************************************\n");
+                    printf("\t\t\t>---------------ELIMINAR CLIENTE CASCADA---------------------<\n");
+                    printf("\t\t\t**************************************************************\n");
+                    EliminarDuenio(listaCliente,DUENIO,listaMascota,MASCOTA);
+                        seguirOperando= GetChar("\nDESEAS SEGUIR (s/n): ");
+                }
                 break;
             case 9:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>ORDENAR MASCOTA POT TIPO LISTARLO CON SUS DUENIO<\n");
-                printf("\t\t\t\t\t**********************\n");
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>-----------ORDENAR MASCOTA POT TIPO--------------(A-Z)------<\n");
+                printf("\t\t\t**************************************************************\n");
                 ordenarMascotasPorTIpo(listaMascota, MASCOTA);
                 mostrarMascotasConSusCliente(listaCliente,DUENIO,listaMascota,MASCOTA);
                 break;
             case 10:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>MODIFICAR DUENIO<\n");
-                printf("\t\t\t\t\t**********************\n");
+                while(seguirOperando == 's' || seguirOperando == 'S'){
+                system("cls");
+                    printf("\t\t\t**************************************************************\n");
+                    printf("\t\t\t>---------------MODIFICAR CLIENTES---------------------------<\n");
+                    printf("\t\t\t**************************************************************\n");
+                mostrarCliente(listaCliente,DUENIO);
                 modificarClientes(listaCliente,DUENIO);
+
+                    seguirOperando= GetChar("\nDESEAS MODIFICAR OTRO ID  (s/n): ");
+                }
                 break;
             case 11:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>LISTA LOS CLIENTES CON MAS DE UNA MASCOTA<\n");
-                printf("\t\t\t\t\t**********************\n");
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>----------LOS CLIENTES CON MAS DE UNA MASCOTA---------------<\n");
+                printf("\t\t\t**************************************************************\n");
                 mostrarClienteConMasUnaMascota(listaCliente,DUENIO,listaMascota,MASCOTA);
                 break;
             case 12:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>LISTA LAS MASCOTA DE MAS DE TRE AÑOS, CON TREPECTIVO DUEÑO<\n");
-                printf("\t\t\t\t\t**********************\n");
-                mostrarMascotasMayordetres(listaCliente,MASCOTA,listaMascota,MASCOTA);
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>-LISTA LAS MASCOTA DE MAS DE TRE AÑOS, CON REPECTIVO DUENIO-<\n");
+                printf("\t\t\t**************************************************************\n");
+                mostrarMascotasMayordetres(listaCliente,DUENIO,listaMascota,MASCOTA);
                 break;
             case 13:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>LISTA MASCOTA POR TIPO EN PARTICULAR<\n");
-                printf("\t\t\t\t\t**********************\n");
                 listarMascotastipoenParticular(listaMascota,MASCOTA);
                 break;
             case 14:
                 system("cls");
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>ORDENAR DUEÑO POR CANTIDAD DE MASCOTA<\n");
-                printf("\t\t\t\t\t**********************\n");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>------------ORDENAR DUEÑO POR CANTIDAD DE MASCOTA-----------<\n");
+                printf("\t\t\t**************************************************************\n");
                 ordenarDuenioosPorcantida(listaMascota,MASCOTA,listaCliente,DUENIO);
                 break;
             case 15:

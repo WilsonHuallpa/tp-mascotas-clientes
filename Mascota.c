@@ -135,17 +135,19 @@ void modificarMascota(eMascotas mascota[],int tam) {
         printf("\nLO SIENTO NO SE ENCONTRO LA IDE \n");
     }
 }
-
 void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas){
     int indiceMascotas;
     int opcion;
 
-    do{
-        printf("1.LISTAS DE PERROS\n");
+    do{ system("cls");
+        printf("\t\t\t**************************************************************\n");
+        printf("\t\t\t>-----------LISTA MASCOTA POR TIPO EN PARTICULAR-------------<\n");
+        printf("\t\t\t**************************************************************\n");
+        printf("\n\n1.LISTAS DE PERROS\n");
         printf("2.LISTAS DE GATOS\n");
         printf("3.LISTAS DE RAROS\n");
         printf("4.SALIR\n");
-        opcion=validate_option("Ingrese una opcion: ");
+        opcion=validate_option("\nIngrese una opcion: ");
         switch (opcion){
             case 1:
                 printf("\t\t----------------------------------TIPO PERRO--------------------------------\n\n");
@@ -177,7 +179,6 @@ void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas
             default:
                 printf("Ingrese una opcion valida\n");
                 break;
-
         }
     system("pause");
     }while(opcion!=4);
@@ -287,6 +288,7 @@ void ordenarMascotasPorTIpo(eMascotas listasMascotas[], int tam_clientes){
             }
         }
     }
+
 }
 
 
