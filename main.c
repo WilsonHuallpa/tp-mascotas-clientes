@@ -17,6 +17,7 @@ int main()
         int contadorIdMascotas=0;
         int C_contador=0;
         char seguirOperando = 'S';
+        float promedioEdades;
         inicializarClientes(listaCliente,DUENIO);
         inicializarMascota(listaMascota,MASCOTA);
 
@@ -171,22 +172,26 @@ int main()
                 ordenarDuenioosPorcantida(listaMascota,MASCOTA,listaCliente,DUENIO);
                 break;
             case 15:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>ORDENAR DUEÑO<\n");
-                printf("\t\t\t\t\t**********************\n");
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>------------------ORDENAR DUEÑO-----------------------------<\n");
+                printf("\t\t\t**************************************************************\n");
                 ordenarClientePorCantidadyNombre(listaMascota,MASCOTA,listaCliente,DUENIO);
                 break;
             case 16:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>PROMEDIO DE EDAD ENTRE LAS MASCOTAS<\n");
-                printf("\t\t\t\t\t**********************\n");
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>-----------PROMEDIO DE EDAD ENTRE LAS MASCOTAS--------------<\n");
+                printf("\t\t\t**************************************************************\n");
                 mostrarMascota(listaMascota,MASCOTA);
-                promediodeEdadesMascota(listaMascota,MASCOTA);
+                promedioEdades=promediodeEdadesMascota(listaMascota,MASCOTA);
+                printf("\nEL PROMEDIO DE LAS EDADE DE LAS MASCOTAS ES: %.2f \n", promedioEdades);
                 break;
             case 17:
-                printf("\t\t\t\t\t**********************\n");
-                printf("\t\t\t\t\t>EL PROMEDIO DE EDAD ENTRE LAS MASCOTAS POR TIPO<\n");
-                printf("\t\t\t\t\t**********************\n");
+                system("cls");
+                printf("\t\t\t**************************************************************\n");
+                printf("\t\t\t>-----EL PROMEDIO DE EDAD ENTRE LAS MASCOTAS POR TIPO--------<\n");
+                printf("\t\t\t**************************************************************\n");
                 promediodePortipo(listaMascota,MASCOTA);
                 break;
             case 18:
@@ -202,11 +207,6 @@ int main()
             }
         system("pause");
         }while(opcion!=19);
-
-
-
-
-
     return 0;
 }
  /* system("pause");

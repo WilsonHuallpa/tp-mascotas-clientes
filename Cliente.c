@@ -24,7 +24,6 @@ void HardcodeClientes(eCliente cliente[],int tamCliente){
         cliente[i].estado=estado[i];
     }
 }
-
 void inicializarClientes(eCliente cliente[], int tam){
     int i;
     for(i=0;i<tam;i++){
@@ -33,7 +32,6 @@ void inicializarClientes(eCliente cliente[], int tam){
     }
 
 }
-
 void mostrarCliente(eCliente cliente[], int tam ){
     int i;
     printf("\n\n\tID\t\tNOMBRE\t\tAPELLIDO\t\tLOCALIDAD\t\tTELEFONO\tEDAD\tSEXO\n\n");
@@ -46,7 +44,6 @@ void mostrarCliente(eCliente cliente[], int tam ){
             }
     }
 }
-
 int buscarLibreCliente(eCliente listaDeCliente[], int tamCliente){
 
     int i;
@@ -59,7 +56,6 @@ int buscarLibreCliente(eCliente listaDeCliente[], int tamCliente){
     }
 return retorno;
 }
-
 int altaDeDuenio(eCliente cliente[], int tam, int cont){
     int index;
     int retorno=-1;
@@ -81,7 +77,6 @@ int altaDeDuenio(eCliente cliente[], int tam, int cont){
     }
 return retorno;
 }
-
 void modificarClientes(eCliente cliente[],int tamCliente) {
     int index;
     int i;
@@ -146,11 +141,13 @@ void promedioentreMujeresyVarones(eCliente listasClientes[], int tam_clientes){
     int indiceClientes;
     int sumadeTotaldeMujeres = 0;
     int sumadeTotaldeVarones = 0;
-    float promedioTotal1;
-    float promedioTotal2;
+    int promedioTotalmujeres = 0;
+    int promedioTotalvarones = 0;
+    int totaldeClientes = 0;
 
     for(indiceClientes = 0; indiceClientes<tam_clientes; indiceClientes++){
         if(listasClientes[indiceClientes].estado == OCUPADO){
+            totaldeClientes++;
             if(listasClientes[indiceClientes].sexo == 'M'|| listasClientes[indiceClientes].sexo == 'm'){
                 sumadeTotaldeVarones++;
             }else if(listasClientes[indiceClientes].sexo =='F'||listasClientes[indiceClientes].sexo == 'f' ){
@@ -158,13 +155,12 @@ void promedioentreMujeresyVarones(eCliente listasClientes[], int tam_clientes){
             }
         }
     }
-    promedioTotal1= (float)sumadeTotaldeMujeres/tam_clientes;
-    promedioTotal2= (float)sumadeTotaldeVarones/tam_clientes;
+    promedioTotalmujeres = ((float)sumadeTotaldeMujeres/(sumadeTotaldeMujeres+sumadeTotaldeVarones))*100;
+    promedioTotalvarones = ((float)sumadeTotaldeVarones/(sumadeTotaldeVarones+sumadeTotaldeMujeres))*100;
     printf("Cantidad de mujeres : %d\n",sumadeTotaldeMujeres);
     printf("cantidad de varones : %d\n",sumadeTotaldeVarones);
-    printf("Promedio de mejeres : %.2f\n",promedioTotal1);
-    printf("Promedio de Varones : %.2f\n",promedioTotal2);
-    system("pause");
+    printf("Procentaje de mejeres : %d\n",promedioTotalmujeres);
+    printf("Porcentaje de Varones :  %d\n",promedioTotalvarones);
 }
 
 

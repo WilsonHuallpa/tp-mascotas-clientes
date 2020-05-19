@@ -135,7 +135,7 @@ void mostrarMascotasMayordetres(eCliente listasClientes[],int tam_Clientes, eMas
         }
     }
 }
-/*Ordenar a los dueños por cantidades de mascotas y mostrarlos*/
+
 
 void ordenarDuenioosPorcantida(eMascotas listamascotas[], int tam_Mascota, eCliente listaclientes[], int tam_clientes){
 

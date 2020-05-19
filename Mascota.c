@@ -183,15 +183,12 @@ void listarMascotastipoenParticular(eMascotas listasMascotas[], int tam_mascotas
     system("pause");
     }while(opcion!=4);
 }
-
-
-void promediodeEdadesMascota(eMascotas listasMascotas[], int tam_Mascotas){
+float promediodeEdadesMascota(eMascotas listasMascotas[], int tam_Mascotas){
 
     int indiceMascota;
     int sumaEdades = 0;
     int contadorid = 0;
     float promedioEdades;
-
     for(indiceMascota= 0; indiceMascota<tam_Mascotas; indiceMascota++){
         if(listasMascotas[indiceMascota].estado == OCUPADO){
             sumaEdades = sumaEdades + listasMascotas[indiceMascota].edad;
@@ -199,20 +196,14 @@ void promediodeEdadesMascota(eMascotas listasMascotas[], int tam_Mascotas){
         }
     }
     promedioEdades= (float)sumaEdades/contadorid;
-
-    printf("EL PROMEDIO DE LAS EDADE DE LAS MASCOTAS ES: %.2f \n", promedioEdades);
-
-    system("pause");
+return promedioEdades;
 }
-
 void promediodePortipo(eMascotas listasMascotas[], int tam_Mascota){
 
-    int indiceMascota;
     int opcion;
     do{
-        int sumaEdades = 0;
-        int contadorid = 0;
-        float promedioPorTipo = 0;
+
+        char tipo[20]= " ";
         printf("1.PROMEDIO PERRO\n");
         printf("2.PROMEDIO GATO\n");
         printf("3.PROMEDIO RARO\n");
@@ -221,46 +212,18 @@ void promediodePortipo(eMascotas listasMascotas[], int tam_Mascota){
         switch(opcion){
             case 1:
                 printf("PROMEDIO DE PERRO\n");
-                for(indiceMascota = 0; indiceMascota<tam_Mascota ; indiceMascota++){
-                    if(listasMascotas[indiceMascota].estado == OCUPADO){
-                        if(strcmpi(listasMascotas[indiceMascota].tipo,"Perro")==0){
-                            mostrarUnMascota(listasMascotas[indiceMascota]);
-                            sumaEdades = sumaEdades + listasMascotas[indiceMascota].edad;
-                            contadorid++;
-                        }
-                    }
-                }
-                promedioPorTipo=(float)sumaEdades/contadorid;
-                printf("EL PROMEDIO DE LAS EDADE DE LAS MASCOTAS ES: %.2f \n", promedioPorTipo);
+                strcpy(tipo,"Perro");
+                sumaEdadesdeMascotas(listasMascotas,tam_Mascota,tipo);
                 break;
             case 2:
                 printf("PROMEDIO DE GATOS\n");
-                for(indiceMascota = 0; indiceMascota<tam_Mascota ; indiceMascota++){
-                    if(listasMascotas[indiceMascota].estado == OCUPADO){
-                        if(strcmpi(listasMascotas[indiceMascota].tipo,"Gato")==0){
-                            mostrarUnMascota(listasMascotas[indiceMascota]);
-                            sumaEdades = sumaEdades + listasMascotas[indiceMascota].edad;
-                            contadorid++;
-                        }
-                    }
-                }
-                promedioPorTipo=(float)sumaEdades/contadorid;
-                printf("EL PROMEDIO DE LAS EDADE DE LAS MASCOTAS ES: %.2f \n", promedioPorTipo);
+                strcpy(tipo,"Gato");
+                sumaEdadesdeMascotas(listasMascotas,tam_Mascota,tipo);
                 break;
             case 3:
                 printf("PROMEDIO DE RARO\n");
-                for(indiceMascota = 0; indiceMascota<tam_Mascota ; indiceMascota++){
-                    if(listasMascotas[indiceMascota].estado == OCUPADO){
-                        if(strcmpi(listasMascotas[indiceMascota].tipo,"Raro")==0){
-                            mostrarUnMascota(listasMascotas[indiceMascota]);
-                            sumaEdades = sumaEdades + listasMascotas[indiceMascota].edad;
-                            contadorid++;
-                        }
-                    }
-                }
-                promedioPorTipo=(float)sumaEdades/contadorid;
-                printf("EL PROMEDIO DE LAS EDADE DE LAS MASCOTAS ES: %.2f \n", promedioPorTipo);
-
+                strcpy(tipo,"Raro");
+                sumaEdadesdeMascotas(listasMascotas,tam_Mascota,tipo);
                 break;
             case 4:
                 printf("hasta luego\n");
@@ -271,9 +234,24 @@ void promediodePortipo(eMascotas listasMascotas[], int tam_Mascota){
         }
     }while(opcion!=4);
 }
+void sumaEdadesdeMascotas(eMascotas listasMascotas[], int tam_Mascota, char tipo[]){
+    int indiceMascota;
+    int sumaEdades=0;
+    int contadorid=0;
+    float promedioPorTipo;
+    for(indiceMascota = 0; indiceMascota<tam_Mascota ; indiceMascota++){
+        if(listasMascotas[indiceMascota].estado == OCUPADO){
+            if(strcmpi(listasMascotas[indiceMascota].tipo,tipo)==0){
+                mostrarUnMascota(listasMascotas[indiceMascota]);
+                sumaEdades = sumaEdades + listasMascotas[indiceMascota].edad;
+                contadorid++;
+            }
+        }
+    }
+    promedioPorTipo=(float)sumaEdades/contadorid;
+    printf("EL PROMEDIO DE LAS EDADE DE LAS MASCOTA ES: %.2f \n", promedioPorTipo);
 
-/*Ordenar las mascotas por tipo y listarlas con sus dueños.*/
-
+}
 void ordenarMascotasPorTIpo(eMascotas listasMascotas[], int tam_clientes){
 
     int indice1;
@@ -288,7 +266,7 @@ void ordenarMascotasPorTIpo(eMascotas listasMascotas[], int tam_clientes){
             }
         }
     }
-
+/*Ordenar las mascotas por tipo y listarlas con sus dueños.*/
 }
 
 
